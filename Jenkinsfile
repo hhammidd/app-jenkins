@@ -41,29 +41,7 @@ pipeline {
             }
         }
 
-        stage("Push image") {
-            steps {
-                script {
-                    docker.withRegistry( '' ) {
-                        dockerImage.push()
-                    }
-                }
-            }
-        }
-
-
-        stage("Remove Unused docker image") {
-            steps{
-                sh "docker rmi $registry:$BUILD_NUMBER"
-            }
-        }
-
-        stage("Pull image from docker registry") {
-            steps{
-                sh "docker pull hhssaaffii/docker-jenkins:${params.IMAGE_TAG}"
-            }
-        }
-
+       
         stage("Install helm and deploy") {
             steps{
                 sh " helm upgrade docker-jenkins  ingress/helm-demo1 --set tag=${params.IMAGE_TAG}"
