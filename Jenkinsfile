@@ -43,7 +43,7 @@ pipeline {
             
         stage("Remove Unused docker image") {
            steps{
-                sh "docker rmi $registry:$BUILD_NUMBER-2"
+                   sh "docker rmi $registry:${BUILD_NUMBER-2}"
             }
         }
 
