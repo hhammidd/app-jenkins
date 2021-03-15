@@ -45,7 +45,7 @@ pipeline {
        
         stage("Install helm and deploy") {
             steps{
-                sh " helm upgrade docker-jenkins  ingress/helm-demo1 --set tag=${params.IMAGE_TAG}"
+                sh " kubect apply -f deploy.yml"
             }
         }
 
