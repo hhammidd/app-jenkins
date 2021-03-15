@@ -19,7 +19,7 @@ pipeline {
        
         stage("Install helm and deploy") {
             steps{
-                sh " kubect apply -f deploy.yml"
+                sh " kubectl apply -f deploy.yml"
             }
         }
 
