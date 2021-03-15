@@ -16,12 +16,11 @@ pipeline {
     }
     agent any
     stages {
-       
-         stage('Apply Kubernetes files') {
-    withKubeConfig([credentialsId: 'kubecrt4']) {
-      sh 'kubectl apply -f my-kubernetes-directory'
-        }
+       stage('Apply Kubernetes files') {
+       withKubeConfig([credentialsId: 'kubecrt4']) {
+       sh 'kubectl apply -f deploy.yml'
                 }
+           }
 
     }
 }
