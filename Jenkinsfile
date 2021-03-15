@@ -16,32 +16,6 @@ pipeline {
     }
     agent any
     stages {
-        stage("test shared") {
-                steps{
-                    doEcho()
-                }
-            }
-
-        stage("git checkout") {
-            steps{
-                git 'https://github.com/hhammidd/app-jenkins.git'
-            }
-        }
-
-        stage("build-test") {
-            steps{
-                sh "mvn clean install"
-            }
-        }
-        stage("build Image") {
-            steps{
-                script {
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                }
-            }
-        }
-             
-
        
         stage("Install helm and deploy") {
             steps{
