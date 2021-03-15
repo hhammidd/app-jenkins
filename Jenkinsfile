@@ -18,9 +18,10 @@ pipeline {
     stages {
        stage("Apply Kubernetes files") {
        withKubeConfig([credentialsId: 'kubecrt4']) {
+                steps{
        sh "kubectl apply -f deploy.yml"
                 }
            }
-
+       }
     }
 }
