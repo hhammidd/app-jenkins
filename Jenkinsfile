@@ -40,10 +40,20 @@ pipeline {
                 }
             }
         }
+            
+          stage("Remove Unused docker image") {
+            steps{
+                    def x= ${BUILD_NUMBER};
+                    y = x -2;
+                    echo "docker rmi $registry:${BUILD_NUMBER-2} , ${BUILD_NUMBER}-2"
+            }
+        }
              
         stage("Remove Unused docker image") {
             steps{
-                    sh "docker rmi $registry:${BUILD_NUMBER-2}"
+                    def x= ${BUILD_NUMBER}
+                    
+                    sh "docker rmi $registry:${BUILD_NUMBER}-2"
             }
         }
        
