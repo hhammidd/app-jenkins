@@ -275,6 +275,17 @@
  3269* kubectl run nginx --image=nginx --restart=Never
  3270* k get pods
  3271* sudo vi /etc/hosts
+ 
+ curl $(minikube ip)
+  1212  k get svc
+  1213  ssh -L 8887:10.101.119.40.30:31299 root@94.130.228.242
+  1214  k get ing
+  1215  k run -it --rm curl --restart=Never --image=nbrown/curl -- 10.101.119.40:80/lazy
+  1216  alias k=kubectl
+  1217  k run -it --rm curl --restart=Never --image=nbrown/curl -- 10.101.119.40:80/lazy
+  1218  k get endpoints hello-deploy
+  1219  alias k=kubectl
+ 
  3272* curl -D- http://203.0.113.3 -H 'Host: hello-world.info'
  3273  kubectl -n ingress-nginx get svc
  3274  k get svc

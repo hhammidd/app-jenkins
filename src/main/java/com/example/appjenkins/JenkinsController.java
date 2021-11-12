@@ -9,6 +9,6 @@ public class JenkinsController {
 
     @GetMapping("/lazy")
     public String getLazy() {
-        return "lazy pegi 1.0.2";
+        return "lazy pegi 1.0.3";
     }
 }
