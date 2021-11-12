@@ -1,5 +1,5 @@
 replicaCount: 1
-tag: 42
+tag: 23
 namespace: default
 service:
   type: NodePort
